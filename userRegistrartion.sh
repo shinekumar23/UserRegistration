@@ -3,6 +3,7 @@ read -p "Enter first Name: " firstName
 read -p "Enter Last Name: " lastName
 read -p "Enter email id: " emailid
 read -p "Enter mobile number: " mobile
+read -p "Enter password: " password
 firstNamePattern="^[A-Z]{1}[a-z]{2,}$"
 emailPattern="^([a-zA-Z]{1}[a-zA-Z0-9]*)([-.+_]{1}[a-z0-9]+)*@([a-z0-9]+)\.([a-z]{2,5})([.]{1}[a-z]{2})?$"
 mobilePattern="^[0-9]{2}([ ]{1}[0-9]{10})$"
@@ -35,4 +36,9 @@ else
                       echo "Invalid mobile number"
 fi
 
-
+if [[ ${#password} -ge 8 ]]
+then
+		     echo "Password is valid"
+else
+		     echo "Invalid password"
+fi
