@@ -17,51 +17,51 @@ mobilePattern="^[0-9]{2}([ ]{1}[0-9]{10})$"
 
 if [[ $firstName =~ $firstNamePattern ]]
 then 
-		      echo "valid first name"
-				validfirstName=$firstName
+		        echo "valid first name"
+			validfirstName=$firstName
 else 
-		      echo "Invalid first name"
+		      	echo "Invalid first name"
 fi
 
 if [[ $lastName =~ $firstNamePattern ]]
 then 
-        	   echo "valid last name"
-				validLastName=$lastName
+     	           	echo "valid last name"
+			validLastName=$lastName
 else 
-            echo "Invalid last name"
+            		echo "Invalid last name"
 fi
 
 if [[ $emailid =~ $emailPattern ]]
 then 
-		      echo "Valid email address"
-				validemailid=$emailid
+		        echo "Valid email address"
+	                validemailid=$emailid
 else
-		      echo "Invalid email address"
+		        echo "Invalid email address"
 fi
 
 if [[ $mobile =~ $mobilePattern ]]
 then 
-            echo "Valid mobile number"
-				validmobile=$mobile
+            		echo "Valid mobile number"
+			validmobile=$mobile
 else
-            echo "Invalid mobile number"
+       		        echo "Invalid mobile number"
 fi
 
-if [[ ${#password} -ge 8 && "$password" == *[[:upper:]]* && "$password" == *[0-9]* && "$password" == *[@#^*]* ]]
+if [[ ${#password} -ge 8 && "$password" == *[[:upper:]]* && "$password" == *[[:lower:]]* && "$password" == *[0-9]* && "$password" == *[@#^*]* ]]
 then
-		     					at=$(echo $password | tr -cd '@' | wc -c)
+		     	at=$(echo $password | tr -cd '@' | wc -c)
                         hash=$(echo $password | tr -cd '#' | wc -c)
                         cap=$(echo $password | tr -cd '^' | wc -c)
                         star=$(echo $password | tr -cd '*' | wc -c)
                         if [ $(($at+$hash+$cap+$star)) -gt 1 ]
                         then
-                        echo "invalid password"
+                        		echo "invalid password"
                         else 
-                        echo "valid password"
-								validPassword=$password
+                        		echo "valid password"
+					validPassword=$password
                         fi
 
 else
-		     echo "Invalid password"
+		     			echo "Invalid password"
 fi
 echo -e  "first Name: $validfirstName\nlast Name: $validLastName\nEmailid: $validemailid\nmobile No: $validmobile\nPassword: $validPassword"
